@@ -1,0 +1,18 @@
+{
+  "version": "2.5.1",
+  "tag": "v2.5.1",
+  "published_at": "2026-10-28T19:02:25Z",
+  "release_notes": "### Added\n- **OTA Verification Release**: First release published to public distribution repository (`RevelRob/usb-device-distro`) for end-to-end OTA verification.\n- **Precompiled Binary Distribution**: Bundles firmware and LittleFS filesystem images for ESP32-S2 and LilyGO T-Dongle-S3 with `manifest.json`.\n\n---",
+  "targets": {
+    "esp32-s2": {
+      "board_name": "ESP32-S2 (Lolin S2 Mini / Saola)",
+      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.5.1/firmware-esp32-s2.bin",
+      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.5.1/littlefs-esp32-s2.bin"
+    },
+    "lilygo-t-dongle-s3": {
+      "board_name": "LilyGO T-Dongle-S3",
+      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.5.1/firmware-t-dongle-s3.bin",
+      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.5.1/littlefs-t-dongle-s3.bin"
+    }
+  }
+}
