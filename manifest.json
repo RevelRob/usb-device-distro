@@ -1,23 +1,23 @@
 {
-  "version": "2.5.1",
-  "tag": "v2.5.1",
-  "published_at": "2026-10-28T19:09:27Z",
-  "release_notes": "OTA Verification Release",
+  "version": "2.6.0",
+  "tag": "v2.6.0",
+  "published_at": "2026-10-28T20:22:09Z",
+  "release_notes": "### Added\n- **LilyGO T-Dongle-S3 Simultaneous Dual-Mode (Wired USB + Bluetooth 5.0 LE)**:\n  - Operates concurrently as a stealth wired USB HID input device and wireless Bluetooth LE HID input device.\n  - Independent multi-target configuration architecture: Target 0 (USB Wired) and Target 1 (Bluetooth #1), each with its own independent interval, mode, movement parameters, schedule, countdown, and active state.\n  - Integrated `ESP32-NimBLE-Combo` and `NimBLE-Arduino` for energy-efficient, robust BLE HID connectivity with auto-reconnect and stealth peripheral identity.\n- **Onboard 0.96\" ST7735 IPS Color Display Dashboard**:\n  - Hardware SPI driver utilizing Adafruit ST7735 and Adafruit GFX (MOSI=3, SCLK=5, CS=4, DC=2, RST=1, BL=38).\n  - 3-page live dashboard with physical button (GPIO 0) page cycling and software debouncing:\n    - **Page 0 (Target Status)**: Displays live USB and Bluetooth connection statuses, independent countdowns, and dynamic animated pulse waveforms when jiggling.\n    - **Page 1 (Network Info)**: Displays WiFi status, IP address, mDNS hostname, and firmware version.\n    - **Page 2 (Bluetooth Info)**: Displays BLE connection state, uptime, and target metrics.\n  - Backlight control with web toggle (`POST /api/display`) and automatic sleep management.\n- **Web UI Multi-Target Management & Keyboard Destination Routing**:\n  - Dynamic target switcher pills with real-time status badges (`Wired`, `Connected`, `Waiting`) in the Jiggler tab.\n  - Destination target selector in the Keyboard tab (`POST /api/type`) to route presets and live keystrokes to either the wired PC or Bluetooth-paired device.\n  - Onboard display settings card in the Device tab.\n- **Full Backward Compatibility for ESP32-S2**:\n  - Single-target mode maintained on ESP32-S2 devices without BLE or display overhead.\n\n### Fixed\n- **LittleFS OTA Flash Stall at 6%**:\n  - Unmounted LittleFS filesystem (`LittleFS.end()`) prior to raw flash sector writes in `Update.begin(..., U_SPIFFS)` to avoid SPI controller deadlocks during over-the-air updates.\n\n---",
   "targets": {
     "esp32-s2": {
       "board_name": "ESP32-S2 (Lolin S2 Mini / Saola)",
-      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.5.1/firmware-esp32-s2.bin",
-      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.5.1/littlefs-esp32-s2.bin"
+      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.0/firmware-esp32-s2.bin",
+      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.0/littlefs-esp32-s2.bin"
     },
     "esp32-s2-saola-1": {
       "board_name": "ESP32-S2 (Lolin S2 Mini / Saola)",
-      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.5.1/firmware-esp32-s2.bin",
-      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.5.1/littlefs-esp32-s2.bin"
+      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.0/firmware-esp32-s2.bin",
+      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.0/littlefs-esp32-s2.bin"
     },
     "lilygo-t-dongle-s3": {
       "board_name": "LilyGO T-Dongle-S3",
-      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.5.1/firmware-t-dongle-s3.bin",
-      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.5.1/littlefs-t-dongle-s3.bin"
+      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.0/firmware-t-dongle-s3.bin",
+      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.0/littlefs-t-dongle-s3.bin"
     }
   }
 }
