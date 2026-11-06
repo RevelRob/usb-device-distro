@@ -1,23 +1,23 @@
 {
-  "version": "2.6.1",
-  "tag": "v2.6.1",
-  "published_at": "2026-11-06T14:57:02Z",
-  "release_notes": "### Fixed\n- **OTA Manifest Parsing Failure (`failed to parse manifest json`)**:\n  - Dynamically scaled `DynamicJsonDocument` capacity for `/api/ota/check` to handle release manifests with extensive markdown changelogs exceeding 4KB, eliminating `NoMemory` parser aborts.\n  - Streamed response directly with `AsyncResponseStream` to prevent heap fragmentation.\n  - Removed strict core-pinning on `otaTask` to ensure task creation succeeds seamlessly on single-core ESP32-S2 devices.\n\n---",
+  "version": "2.6.2",
+  "tag": "v2.6.2",
+  "published_at": "2026-11-06T15:41:08Z",
+  "release_notes": "### Added\n- **Universal USB Power Support (GaN Fast-Chargers & Battery Banks)**:\n  - **Dynamic USB Host vs. Charger Detection**: Added pre-boot BC 1.2 DCP short and fast-charge voltage bias sensing on D+ (`GPIO20`) and D- (`GPIO19`). When plugged into a wall outlet, GaN fast charger, or power bank, the firmware bypasses the USB HID stack to prevent illegal `SE1` bus lockups.\n  - **Brownout Detector Transient Suppression**: Disables early-boot brownout resets to tolerate fast-charger inrush voltage dips.\n  - **Battery Bank Keep-Alive**: Disables Wi-Fi modem sleep (`WiFi.setSleep(false)`) to maintain a steady ~100\u2013120mA load, keeping portable battery banks from entering auto-sleep / shutting off power.\n  - **Seamless Standalone Operation**: When operating on external power without a host computer, the device runs all Wi-Fi, Web UI, and up to 3 Bluetooth jigglers continuously while reporting `Power only` on the USB status.\n\n---",
   "targets": {
     "esp32-s2": {
       "board_name": "ESP32-S2 (Lolin S2 Mini / Saola)",
-      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.1/firmware-esp32-s2.bin",
-      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.1/littlefs-esp32-s2.bin"
+      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.2/firmware-esp32-s2.bin",
+      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.2/littlefs-esp32-s2.bin"
     },
     "esp32-s2-saola-1": {
       "board_name": "ESP32-S2 (Lolin S2 Mini / Saola)",
-      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.1/firmware-esp32-s2.bin",
-      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.1/littlefs-esp32-s2.bin"
+      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.2/firmware-esp32-s2.bin",
+      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.2/littlefs-esp32-s2.bin"
     },
     "lilygo-t-dongle-s3": {
       "board_name": "LilyGO T-Dongle-S3",
-      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.1/firmware-t-dongle-s3.bin",
-      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.1/littlefs-t-dongle-s3.bin"
+      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.2/firmware-t-dongle-s3.bin",
+      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.2/littlefs-t-dongle-s3.bin"
     }
   }
 }
