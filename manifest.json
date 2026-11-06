@@ -1,23 +1,23 @@
 {
-  "version": "2.6.0",
-  "tag": "v2.6.0",
-  "published_at": "2026-11-06T14:38:55Z",
-  "release_notes": "v2.6.0: Multi-device simultaneous Bluetooth (up to 3 hosts), per-slot stealth advertised names, live 4-target dashboard with live countdowns & jiggle indicators, dynamic keyboard target routing, and network diagnostics.",
+  "version": "2.6.1",
+  "tag": "v2.6.1",
+  "published_at": "2026-11-06T14:57:02Z",
+  "release_notes": "### Fixed\n- **OTA Manifest Parsing Failure (`failed to parse manifest json`)**:\n  - Dynamically scaled `DynamicJsonDocument` capacity for `/api/ota/check` to handle release manifests with extensive markdown changelogs exceeding 4KB, eliminating `NoMemory` parser aborts.\n  - Streamed response directly with `AsyncResponseStream` to prevent heap fragmentation.\n  - Removed strict core-pinning on `otaTask` to ensure task creation succeeds seamlessly on single-core ESP32-S2 devices.\n\n---",
   "targets": {
     "esp32-s2": {
       "board_name": "ESP32-S2 (Lolin S2 Mini / Saola)",
-      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.0/firmware-esp32-s2.bin",
-      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.0/littlefs-esp32-s2.bin"
+      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.1/firmware-esp32-s2.bin",
+      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.1/littlefs-esp32-s2.bin"
     },
     "esp32-s2-saola-1": {
       "board_name": "ESP32-S2 (Lolin S2 Mini / Saola)",
-      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.0/firmware-esp32-s2.bin",
-      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.0/littlefs-esp32-s2.bin"
+      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.1/firmware-esp32-s2.bin",
+      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.1/littlefs-esp32-s2.bin"
     },
     "lilygo-t-dongle-s3": {
       "board_name": "LilyGO T-Dongle-S3",
-      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.0/firmware-t-dongle-s3.bin",
-      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.0/littlefs-t-dongle-s3.bin"
+      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.1/firmware-t-dongle-s3.bin",
+      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.1/littlefs-t-dongle-s3.bin"
     }
   }
 }
