@@ -1,23 +1,23 @@
 {
-  "version": "2.6.3",
-  "tag": "v2.6.3",
-  "published_at": "2026-11-06T16:06:49Z",
-  "release_notes": "### Fixed\n- **Resolved Boot Loop Caused by Native USB Pin Reconfiguration**:\n  - Reverted `pinMode()` calls on GPIO 19 (`D-`) and GPIO 20 (`D+`). On the ESP32-S3, manipulating these pins as general-purpose GPIOs disrupts the internal USB OTG PHY, causing fatal hardware exceptions and continuous boot loops on startup.\n  - Reverted direct register writes to `RTC_CNTL_BROWN_OUT_REG`.\n  - Restored the rock-solid, proven v2.6.1 boot sequence and USB HID initialization.\n\n---",
+  "version": "2.7.0",
+  "tag": "v2.7.0",
+  "published_at": "2026-11-09T15:08:21Z",
+  "release_notes": "### Added\n- **Onboard Display Controls & Hardware Brightness**:\n  - Added display brightness slider (10% to 100%) utilizing hardware LEDC PWM on GPIO 38.\n  - Added \"Cycle Screen\" button in the web interface that mimics the physical GPIO 0 button press.\n  - Added direct screen jump buttons for Page 1 (Live Status), Page 2 (Network Info), and Page 3 (Bluetooth Status).\n  - Saved screen backlight and brightness preferences in non-volatile flash configuration.\n- **LilyGO T-Dongle-S3 Onboard RGB LED (APA102) & Enhanced LED Modes**:\n  - Direct hardware driver for the onboard APA102 DotStar RGB LED (GPIO 39 Clock, GPIO 40 Data).\n  - Updated Jiggler LED Mode options on T-Dongle-S3:\n    - **`On (Screen Backlight)`**: Lights the LCD screen backlight during active jiggles for the configured duration.\n    - **`Blink Colour`**: Pulses the onboard APA102 RGB LED in a user-selected color at the chosen blink frequency.\n    - **`Solid Colour`**: Illuminates the onboard APA102 RGB LED solid in a user-selected color.\n  - Integrated color picker for selecting custom hex colors (`#RRGGBB`).\n  - Preserved backward compatibility for ESP32-S2 mono LED on GPIO 17 (`Solid` / `Blink`).\n- **Stealth Access Point (Office Mode)**:\n  - Removed hardcoded `\"Jiggler-\"` identifier from default setup SoftAP broadcasts.\n  - Added configurable SoftAP SSID with stealth presets (`Office-Direct-Setup`, `HP-Print-42-DeskJet`, `Direct-Roku-812`, `Dell-Universal-Link`, `ESP-Device-Setup`) and custom name input.\n  - Added optional WPA2 password protection and \"Hidden Network\" beacon suppression (`apHidden`).\n\n### Fixed\n- **Screen Backlight Control**:\n  - Fixed `/api/display` endpoint to correctly parse JSON POST bodies and update backlight status.\n  - Disabled both the LCD ST7735 controller (`enableDisplay(false)`) and active-low LEDC PWM channel (duty 255) to fully power down the screen.\n  - Allowed short-pressing physical button 0 to re-wake the screen when turned off.\n- **Keyboard Tab Target Dropdown Layout**:\n  - Resolved UI overflow where the \"Send Keystrokes To\" dropdown extended past the \"Keyboard Target\" box on long slot names and Bluetooth identities.\n  - Applied flexbox boundary constraints (`min-width: 0`, `max-width: 100%`, and `text-overflow: ellipsis`) and streamlined target label formatting.\n\n### Fixed\n- **Resolved Boot Loop Caused by Native USB Pin Reconfiguration**:\n  - Reverted `pinMode()` calls on GPIO 19 (`D-`) and GPIO 20 (`D+`). On the ESP32-S3, manipulating these pins as general-purpose GPIOs disrupts the internal USB OTG PHY, causing fatal hardware exceptions and continuous boot loops on startup.\n  - Reverted direct register writes to `RTC_CNTL_BROWN_OUT_REG`.\n  - Restored the rock-solid, proven v2.6.1 boot sequence and USB HID initialization.\n\n---",
   "targets": {
     "esp32-s2": {
       "board_name": "ESP32-S2 (Lolin S2 Mini / Saola)",
-      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.3/firmware-esp32-s2.bin",
-      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.3/littlefs-esp32-s2.bin"
+      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.7.0/firmware-esp32-s2.bin",
+      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.7.0/littlefs-esp32-s2.bin"
     },
     "esp32-s2-saola-1": {
       "board_name": "ESP32-S2 (Lolin S2 Mini / Saola)",
-      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.3/firmware-esp32-s2.bin",
-      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.3/littlefs-esp32-s2.bin"
+      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.7.0/firmware-esp32-s2.bin",
+      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.7.0/littlefs-esp32-s2.bin"
     },
     "lilygo-t-dongle-s3": {
       "board_name": "LilyGO T-Dongle-S3",
-      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.3/firmware-t-dongle-s3.bin",
-      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.6.3/littlefs-t-dongle-s3.bin"
+      "firmware_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.7.0/firmware-t-dongle-s3.bin",
+      "filesystem_url": "https://github.com/RevelRob/usb-device-distro/releases/download/v2.7.0/littlefs-t-dongle-s3.bin"
     }
   }
 }
